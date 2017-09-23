@@ -22,3 +22,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body {
+  font-family: monospace !important;
+  color: white !important;
+  background-color: #7B7B7B !important;
+}
+
+div.NavBar.menu, div.NavBar.menu * {
+  background-color: #000000 !important;
+  font-family: monospace;
+  color: white;
+}
+
+#button {
+  border-top: 5px !important;
+  border-width: 20px !important;
+  border-color: #000000 !important;
+}

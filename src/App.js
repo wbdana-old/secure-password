@@ -9,11 +9,16 @@ import NavBar from './components/NavBar'
 
 class App extends Component {
   state = {
-    inputGiven: false
+    inputGiven: false,
+    password: ''
   }
 
   updateState = () => {
     this.state.inputGiven === true ? this.setState({ inputGiven: false }) : this.setState({ inputGiven: true })
+  }
+
+  updatePassword = (newPassword) => {
+    this.setState({ password: newPassword })
   }
 
   render() {
@@ -21,8 +26,8 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <br/><br/>
-        {this.state.inputGiven === false && <PasswordForm updateState={this.updateState} />}
-        {this.state.inputGiven === true && <Message updateState={this.updateState} />}
+        {this.state.inputGiven === false && <PasswordForm updateState={this.updateState} updatePassword={this.updatePassword} />}
+        {this.state.inputGiven === true && <Message password={this.state.password} updateState={this.updateState} />}
       </div>
     );
   }
