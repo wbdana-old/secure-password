@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -17,6 +16,13 @@ class App extends Component {
     this.state.inputGiven === true ? this.setState({ inputGiven: false }) : this.setState({ inputGiven: true })
   }
 
+  resetState = () => {
+    this.setState({
+      inputGiven: false,
+      password: ''
+    })
+  }
+
   updatePassword = (newPassword) => {
     this.setState({ password: newPassword })
   }
@@ -27,7 +33,7 @@ class App extends Component {
         <NavBar />
         <br/><br/>
         {this.state.inputGiven === false && <PasswordForm updateState={this.updateState} updatePassword={this.updatePassword} />}
-        {this.state.inputGiven === true && <Message password={this.state.password} updateState={this.updateState} />}
+        {this.state.inputGiven === true && <Message password={this.state.password} updateState={this.resetState} />}
       </div>
     );
   }
